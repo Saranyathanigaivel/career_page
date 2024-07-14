@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($_FILES['resume']['tmp_name'], $target_file)) {
             $sql = "INSERT INTO applications (name, email, phone, resume) VALUES ('$name', '$email', '$phone', '$resume')";
             if ($conn->query($sql) === TRUE) {
-                echo "Application submitted successfully";
+                echo "<script> document.location.href='thank.html';</script>";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
